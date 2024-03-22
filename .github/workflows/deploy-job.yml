@@ -33,7 +33,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: test_init-0.0.1-SNAPSHOT.jar
+          name: static_site
           path: ./
   prepare-environment:
     runs-on: self-hosted
@@ -54,6 +54,6 @@ jobs:
       - name: Download jar file
         uses: actions/download-artifact@v3
         with:
-          name: test_init-0.0.1-SNAPSHOT.jar
+          name: static_site
       - name: docker-compose
         run: docker-compose up -d
