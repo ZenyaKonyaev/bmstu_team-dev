@@ -55,5 +55,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: jar_file
+          path: ./target
       - name: docker-compose
         run: docker-compose up -d
