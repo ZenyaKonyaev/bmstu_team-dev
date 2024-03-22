@@ -26,10 +26,14 @@ jobs:
         run: docker-compose down
       - name: Remove unused data
         run: docker system prune -a -f
-      - name: echo passoword
-        run: echo $PASSWORD
+      - name: set up Java and Maven
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
       - name: get jar file
-        run: ./mvnw clean package -DskipTests
+        run: mvn clean package -DskipTests
   deploy:
     runs-on: self-hosted
     needs: prepare-environment
