@@ -18,7 +18,7 @@ jobs:
         run: mvn test
   prepare-environment:
     runs-on: self-hosted
-    needs: get-artifact
+    needs: test
     steps:
       - name: checkout repo
         uses: actions/checkout@v3
