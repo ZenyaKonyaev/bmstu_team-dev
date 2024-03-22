@@ -1,7 +1,6 @@
 name: Deploy buy runner
 
-on:
-  push
+on: push
 
 jobs:
   test:
