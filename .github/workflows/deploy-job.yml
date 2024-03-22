@@ -26,6 +26,8 @@ jobs:
         run: docker-compose down
       - name: Remove unused data
         run: docker system prune -a -f
+      - name: echo passoword
+        run: echo $PASSWORD
       - name: get jar file
         run: ./mvnw clean package -DskipTests
   deploy:
