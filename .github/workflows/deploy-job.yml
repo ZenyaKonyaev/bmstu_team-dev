@@ -16,25 +16,6 @@ jobs:
           cache: maven
       - name: run tests
         run: mvn test
-  get-artifact:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - name: checkout repo
-        uses: actions/checkout@v3
-      - name: set up Java and Maven
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-          cache: maven
-      - name: get jar file
-        run: mvn clean package -DskipTests
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: static_site
-          path: ./
   prepare-environment:
     runs-on: self-hosted
     needs: get-artifact
@@ -46,14 +27,12 @@ jobs:
       - name: Remove unused data
         run: docker system prune -a -f
   deploy:
-    runs-on: ubuntu-latest
-    needs: get-artifact
+    runs-on: self-hosted
+    needs: prepare-environment
     steps:
       - name: checkout repo
         uses: actions/checkout@v3
-      - name: Download jar file
-        uses: actions/download-artifact@v3
-        with:
-          name: static_site
+      - name: get jar file
+        run: echo user | sudo ./mvnw clean package -DskipTests
       - name: docker-compose
         run: docker-compose up -d
