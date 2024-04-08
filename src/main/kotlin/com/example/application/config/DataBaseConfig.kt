@@ -39,7 +39,7 @@ class DataBaseConfig(
     fun entityManagerFactoryBean(builder: EntityManagerFactoryBuilder): LocalContainerEntityManagerFactoryBean? {
         return builder
             .dataSource(dataSource())
-            .packages("com.example.nepekariproject")
+            .packages("com.example.application")
             .build().apply {
                 jpaVendorAdapter = HibernateJpaVendorAdapter()
                 setJpaProperties(getHibernateProperties())
