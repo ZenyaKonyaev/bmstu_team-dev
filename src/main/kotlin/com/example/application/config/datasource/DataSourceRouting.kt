@@ -13,7 +13,6 @@ class DataSourceRouting(
         val dataSourceMap: MutableMap<Any, Any> = HashMap()
         dataSourceMap[DataSourceEnum.DATA_SOURCE_UNKNOWN] = dataSourceUnknownConfig()
         dataSourceMap[DataSourceEnum.DATA_SOURCE_AUTH] = dataSourceAuthConfig()
-        dataSourceMap[DataSourceEnum.DATA_SOURCE_ADMIN] = dataSourceAdminConfig()
         setTargetDataSources(dataSourceMap)
         setDefaultTargetDataSource(dataSourceUnknownConfig())
     }
@@ -35,14 +34,6 @@ class DataSourceRouting(
         dataSource.url = "jdbc:postgresql://localhost:32768/postgres"
         dataSource.username = "authorized"
         dataSource.password = "authorized"
-        return dataSource.also { dataSourceCommonConfig(it) }
-    }
-
-    fun dataSourceAdminConfig(): DataSource {
-        val dataSource = DriverManagerDataSource()
-        dataSource.url = "jdbc:postgresql://localhost:32768/postgres"
-        dataSource.username = "admin"
-        dataSource.password = "admin"
         return dataSource.also { dataSourceCommonConfig(it) }
     }
 
