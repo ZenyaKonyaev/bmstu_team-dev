@@ -1,9 +1,9 @@
 package com.example.application.converters.cake.cakeEntityAndBusinessConverter
 
+import com.example.application.converters.cakePart.cakePartEntityAndBusinessConverter.CakePartEntityAndBusinessConverter
 import com.example.application.dto.cake.CakeBusinessDto
 import com.example.application.dto.cake.CakeBusinessDtoImpl
 import com.example.application.entity.custom_cake.CakeEntity
-import com.example.application.converters.cakePart.cakePartEntityAndBusinessConverter.CakePartEntityAndBusinessConverter
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
@@ -17,7 +17,7 @@ class CakeEntityAndBusinessConverterImpl : CakeEntityAndBusinessConverter {
             id = dto.id,
             base = cakePartConverter.convert(dto.basePart),
             filling = cakePartConverter.convert(dto.fillingPart),
-            cream = cakePartConverter.convert(dto.creamPart)
+            cream = cakePartConverter.convert(dto.creamPart),
         )
     }
 
@@ -26,7 +26,7 @@ class CakeEntityAndBusinessConverterImpl : CakeEntityAndBusinessConverter {
             id = dto.getId(),
             basePart = cakePartConverter.convert(dto.getBase()),
             fillingPart = cakePartConverter.convert(dto.getFilling()),
-            creamPart = cakePartConverter.convert(dto.getCream())
+            creamPart = cakePartConverter.convert(dto.getCream()),
         )
     }
 }

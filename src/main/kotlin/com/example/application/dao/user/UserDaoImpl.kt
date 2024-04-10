@@ -13,17 +13,15 @@ import org.springframework.dao.EmptyResultDataAccessException
 import org.springframework.stereotype.Repository
 import javax.transaction.Transactional
 
-
 @Repository
 @Transactional
 @Primary
-class UserDaoImpl: UserDao {
+class UserDaoImpl : UserDao {
     @Autowired
     private lateinit var userRepository: UserRepository
 
     @Autowired
     private lateinit var userConverter: UserEntityAndBusinessConverter
-
 
     override fun getUserByLogin(userLogin: String): UserBusinessDto {
         val userEntity: UserEntity
@@ -51,7 +49,6 @@ class UserDaoImpl: UserDao {
     }
 
     override fun saveNewUser(user: UserBusinessDto) {
-
         val userEntity: UserEntity
 
         try {
@@ -64,7 +61,6 @@ class UserDaoImpl: UserDao {
     }
 
     override fun updateInfoAboutUser(user: UserBusinessDto) {
-
         val userEntity: UserEntity
         try {
             userEntity = userRepository.getUserById(user.getId())

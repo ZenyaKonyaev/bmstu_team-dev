@@ -16,5 +16,5 @@ class ProductUIDto(
     @JsonProperty
     val description: DescriptionUIDto = DescriptionUIDto("", "", "", 0.0, 0.0, 0.0, 0),
     @JsonProperty
-    val bonuses: List<BonusUIDto>? = null
+    val bonuses: List<BonusUIDto>? = null,
 )

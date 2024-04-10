@@ -8,5 +8,5 @@ data class InfoAccountPageRs(
     @JsonProperty
     val user: UserUIDto,
     @JsonProperty
-    val orders: List<OrderUIDto>
+    val orders: List<OrderUIDto>,
 )

@@ -12,25 +12,41 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import java.util.*
 
 @ControllerAdvice
-class ExceptionHandler: ResponseEntityExceptionHandler() {
+class ExceptionHandler : ResponseEntityExceptionHandler() {
     @ExceptionHandler(Exception::class)
-    fun handleOtherException(ex: Exception, request: WebRequest) =
-        ResponseEntity(
-            MessageExceptionHandler(Date(), "ex_cause: ${ex.cause}|||" +
-                "ex_message: ${ex.message}|||", "-"),
-            HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR)
+    fun handleOtherException(
+        ex: Exception,
+        request: WebRequest,
+    ) = ResponseEntity(
+        MessageExceptionHandler(
+            Date(),
+            "ex_cause: ${ex.cause}|||" +
+                "ex_message: ${ex.message}|||",
+            "-",
+        ),
+        HttpHeaders(),
+        HttpStatus.INTERNAL_SERVER_ERROR,
+    )
 
     @ExceptionHandler(AccessDeniedException::class)
-    fun handleAccessDeniedException(ex: AccessDeniedException, request: WebRequest) =
-        ResponseEntity(
-            MessageExceptionHandler(Date(), "Access denied", "-"),
-            HttpHeaders(), HttpStatus.FORBIDDEN)
+    fun handleAccessDeniedException(
+        ex: AccessDeniedException,
+        request: WebRequest,
+    ) = ResponseEntity(
+        MessageExceptionHandler(Date(), "Access denied", "-"),
+        HttpHeaders(),
+        HttpStatus.FORBIDDEN,
+    )
 
     @ExceptionHandler(UnavailableTechnicalException::class)
-    fun handleTechnicalException(ex: UnavailableTechnicalException, request: WebRequest) =
-        ResponseEntity(MessageExceptionHandler(ex), HttpHeaders(), HttpStatus.BAD_GATEWAY)
+    fun handleTechnicalException(
+        ex: UnavailableTechnicalException,
+        request: WebRequest,
+    ) = ResponseEntity(MessageExceptionHandler(ex), HttpHeaders(), HttpStatus.BAD_GATEWAY)
 
     @ExceptionHandler(DataBaseException::class)
-    fun handleDataBaseException(ex: DataBaseException, request: WebRequest) =
-        ResponseEntity(MessageExceptionHandler(ex), HttpHeaders(), HttpStatus.GONE)
+    fun handleDataBaseException(
+        ex: DataBaseException,
+        request: WebRequest,
+    ) = ResponseEntity(MessageExceptionHandler(ex), HttpHeaders(), HttpStatus.GONE)
 }

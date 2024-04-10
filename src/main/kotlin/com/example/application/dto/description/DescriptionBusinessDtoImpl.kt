@@ -1,6 +1,5 @@
 package com.example.application.dto.description
 
-import com.example.application.dto.description.DescriptionBusinessDto
 import org.springframework.stereotype.Component
 
 @Component
@@ -12,14 +11,21 @@ class DescriptionBusinessDtoImpl(
     private var amountCarb: Double = 0.0,
     private var amountPrt: Double = 0.0,
     private var amountFat: Double = 0.0,
-    private var expiryTimeDays: Int = 0
-): DescriptionBusinessDto {
+    private var expiryTimeDays: Int = 0,
+) : DescriptionBusinessDto {
     override fun getId() = id
+
     override fun getTitle() = title
+
     override fun getDescription() = description
+
     override fun getUrlImg() = urlImg
+
     override fun getAmountCarb() = amountCarb
+
     override fun getAmountPrt() = amountPrt
+
     override fun getAmountFat() = amountFat
+
     override fun getExpiryTimeDays() = expiryTimeDays
 }

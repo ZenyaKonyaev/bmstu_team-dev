@@ -1,12 +1,12 @@
 package com.example.application.converters.order.orderEntityAndBusinessConverter
 
 import com.example.application.converters.cake.cakeEntityAndBusinessConverter.CakeEntityAndBusinessConverter
+import com.example.application.converters.product.productEntityAndBusinessConverter.ProductEntityAndBusinessConverter
+import com.example.application.converters.user.userEntityAndBusinessConverter.UserEntityAndBusinessConverter
 import com.example.application.dto.order.OrderBusinessDto
 import com.example.application.dto.order.OrderBusinessDtoImpl
 import com.example.application.entity.order.OrderEntity
 import com.example.application.enumerations.OrderStatusCode
-import com.example.application.converters.product.productEntityAndBusinessConverter.ProductEntityAndBusinessConverter
-import com.example.application.converters.user.userEntityAndBusinessConverter.UserEntityAndBusinessConverter
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import java.sql.Date
@@ -33,7 +33,7 @@ class OrderEntityAndBusinessConverterImpl : OrderEntityAndBusinessConverter {
             dateExpiry = Date(dto.getDateExpiry().time),
             addressToSend = dto.getAddressToSend(),
             description = dto.getDescription(),
-            statusCode = dto.getStatusCode().statusCode
+            statusCode = dto.getStatusCode().statusCode,
         )
     }
 
@@ -47,7 +47,7 @@ class OrderEntityAndBusinessConverterImpl : OrderEntityAndBusinessConverter {
             dateExpiry = Date(dto.dateExpiry?.time ?: 0),
             addressToSend = dto.addressToSend,
             description = dto.description ?: "",
-            statusCode = OrderStatusCode.getStatusByCode(dto.statusCode)
+            statusCode = OrderStatusCode.getStatusByCode(dto.statusCode),
         )
     }
 }

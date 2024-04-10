@@ -5,5 +5,5 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 data class HistoryPageRs(
     @JsonProperty
-    val orders: List<OrderUIDto>?
+    val orders: List<OrderUIDto>?,
 )

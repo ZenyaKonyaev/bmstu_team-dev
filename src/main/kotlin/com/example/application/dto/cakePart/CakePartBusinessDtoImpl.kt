@@ -10,20 +10,24 @@ class CakePartBusinessDtoImpl(
     private var name: String = "",
     private var cost: Double = 0.0,
     private var type: CakePartType = CakePartType.BASE,
-    private var description: DescriptionBusinessDto
-): CakePartBusinessDto {
+    private var description: DescriptionBusinessDto,
+) : CakePartBusinessDto {
     override fun getId() = id
+
     override fun getName() = name
+
     override fun getCost() = cost
+
     override fun getType() = type
+
     override fun getDescription() = description
 
     override fun equals(other: Any?): Boolean {
         val otherPart = other as? CakePartBusinessDto ?: return false
 
         return this.id == otherPart.getId() &&
-                this.name == otherPart.getName() &&
-                this.cost == otherPart.getCost() &&
-                this.type == otherPart.getType()
+            this.name == otherPart.getName() &&
+            this.cost == otherPart.getCost() &&
+            this.type == otherPart.getType()
     }
 }

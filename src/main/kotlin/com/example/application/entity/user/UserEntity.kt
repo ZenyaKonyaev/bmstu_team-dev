@@ -10,51 +10,41 @@ class UserEntity(
     @Id
     @Column(name = "user_id")
     var id: Long = 0,
-
     @Basic
     @Column(name = "user_login")
     var login: String,
-
     @Basic
     @Column(name = "user_password")
     var password: String,
-
     @Basic
     @Column(name = "user_name")
     var name: String,
-
     @Basic
     @Column(name = "user_surname")
     var surname: String,
-
     @Basic
     @Column(name = "user_lastname")
     var lastname: String,
-
     @Basic
     @Column(name = "user_address")
     var address: String,
-
     @Basic
     @Column(name = "user_regdate")
     var regdate: Date,
-
     @Basic
     @Column(name = "user_tariff_plan")
     var tariffPlan: Int,
-
     @Basic
     @Column(name = "user_email")
     var email: String? = null,
-
     @Basic
     @Column(name = "user_role")
-    var role: String = "ROLE_USER"
+    var role: String = "ROLE_USER",
 ) {
     override fun toString(): String {
         return "TableUserEntity(id=$id name=$name surname=$surname " +
-                "lastname=$lastname address=$address regDate=$regdate " +
-                "email=$email tariffPlan=$tariffPlan role=$role)"
+            "lastname=$lastname address=$address regDate=$regdate " +
+            "email=$email tariffPlan=$tariffPlan role=$role)"
     }
 
     override fun equals(o: Any?): Boolean {

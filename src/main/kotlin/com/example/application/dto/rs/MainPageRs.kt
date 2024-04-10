@@ -11,7 +11,7 @@ data class CakesFieldMainPageRs(
     @JsonProperty
     val fillings: List<CakePartUIDto>,
     @JsonProperty
-    val creams: List<CakePartUIDto>
+    val creams: List<CakePartUIDto>,
 )
 
 data class MainPageRs(

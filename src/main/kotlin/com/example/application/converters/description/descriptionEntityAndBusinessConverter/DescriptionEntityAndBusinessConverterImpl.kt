@@ -3,7 +3,6 @@ package com.example.application.converters.description.descriptionEntityAndBusin
 import com.example.application.dto.description.DescriptionBusinessDto
 import com.example.application.dto.description.DescriptionBusinessDtoImpl
 import com.example.application.entity.add_descr.DescrEntity
-
 import org.springframework.stereotype.Component
 
 @Component
@@ -17,7 +16,7 @@ class DescriptionEntityAndBusinessConverterImpl : DescriptionEntityAndBusinessCo
             amountCarb = dto.getAmountCarb(),
             amountProt = dto.getAmountPrt(),
             amountFat = dto.getAmountFat(),
-            expiryTimeDays = dto.getExpiryTimeDays()
+            expiryTimeDays = dto.getExpiryTimeDays(),
         )
     }
 
@@ -30,7 +29,7 @@ class DescriptionEntityAndBusinessConverterImpl : DescriptionEntityAndBusinessCo
             amountCarb = dto.amountCarb,
             amountPrt = dto.amountProt,
             amountFat = dto.amountFat,
-            expiryTimeDays = dto.expiryTimeDays
+            expiryTimeDays = dto.expiryTimeDays,
         )
     }
 }

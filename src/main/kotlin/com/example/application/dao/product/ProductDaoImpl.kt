@@ -15,8 +15,7 @@ import javax.transaction.Transactional
 
 @Repository
 @Transactional
-class ProductDaoImpl: ProductDao {
-
+class ProductDaoImpl : ProductDao {
     @Autowired
     private lateinit var productRepository: ProductRepository
 
@@ -24,7 +23,6 @@ class ProductDaoImpl: ProductDao {
     private lateinit var productConverter: ProductEntityAndBusinessConverter
 
     private val logger = LogManager.getLogger(this::class.java)
-
 
     override fun getProductById(id: Long): ProductBusinessDto {
         val productEntity: ProductEntity
@@ -38,13 +36,10 @@ class ProductDaoImpl: ProductDao {
             throw UnavailableTechnicalException(ex.stackTraceToString())
         }
 
-
         return productConverter.convert(productEntity)
     }
 
     override fun getProductsCatalog(): List<ProductBusinessDto> {
-
-
         val result: List<ProductEntity>
 
         try {
@@ -54,13 +49,10 @@ class ProductDaoImpl: ProductDao {
             throw UnavailableTechnicalException(ex.stackTraceToString())
         }
 
-
         return result.map { productConverter.convert(it) }
     }
 
     override fun addProduct(product: ProductBusinessDto) {
-
-
         val entity: ProductEntity
 
         try {
@@ -77,19 +69,15 @@ class ProductDaoImpl: ProductDao {
             logger.error("Cant save productEntity to database.\n${ex.message}\n${ex.cause}")
             throw UnavailableTechnicalException(ex.stackTraceToString())
         }
-
     }
 
     override fun deleteProduct(id: Long) {
-
-
         logger.debug("deleting productCatalog with id=$id")
         try {
-        productRepository.delete(productRepository.getProductById(id))
+            productRepository.delete(productRepository.getProductById(id))
         } catch (ex: DataAccessException) {
             logger.error("Cant delete product with id=$id.\n ${ex.message}\n${ex.cause}")
             throw UnavailableTechnicalException(ex.stackTraceToString())
         }
     }
-
 }

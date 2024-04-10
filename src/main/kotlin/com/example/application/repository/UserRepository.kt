@@ -8,8 +8,7 @@ import javax.transaction.Transactional
 
 @Transactional
 @Repository
-interface UserRepository: JpaRepository<UserEntity, Long> {
-
+interface UserRepository : JpaRepository<UserEntity, Long> {
     @Query("SELECT u FROM UserEntity u WHERE u.login = ?1")
     fun getUserByLogin(userLogin: String): UserEntity
 

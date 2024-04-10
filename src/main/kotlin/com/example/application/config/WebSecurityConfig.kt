@@ -9,27 +9,25 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository
 
-
 @Configuration
 @EnableWebSecurity
-class WebSecurityConfig: WebSecurityConfigurerAdapter() {
-
+class WebSecurityConfig : WebSecurityConfigurerAdapter() {
     override fun configure(http: HttpSecurity) {
         http
-        .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
-        .authorizeRequests()
+            .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
+            .authorizeRequests()
             .antMatchers("/", "/img/**", "/css/**").permitAll()
             .anyRequest().authenticated()
             .and()
-        .formLogin()
+            .formLogin()
             .defaultSuccessUrl("/index", true)
             .permitAll()
             .and()
-        .logout()
+            .logout()
             .logoutSuccessUrl("/index")
             .permitAll()
             .and()
-        .httpBasic()
+            .httpBasic()
     }
 
     @Bean

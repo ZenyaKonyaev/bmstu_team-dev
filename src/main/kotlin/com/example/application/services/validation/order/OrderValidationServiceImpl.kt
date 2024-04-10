@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class OrderValidationServiceImpl: OrderValidationService {
+class OrderValidationServiceImpl : OrderValidationService {
     @Autowired
     private lateinit var productService: ProductService
 
@@ -27,17 +27,20 @@ class OrderValidationServiceImpl: OrderValidationService {
 
         val productsCatalog = productService.getProductCatalog()
         order.getProducts().forEach { productFromDto ->
-            if (!productsCatalog.any { it == productFromDto}) return false
+            if (!productsCatalog.any { it == productFromDto }) return false
         }
 
-        val cakesPart = productService.let {
-            it.getCakeCreamParts() + it.getCakeBaseParts() + it.getCakeFillingParts()
-        }
+        val cakesPart =
+            productService.let {
+                it.getCakeCreamParts() + it.getCakeBaseParts() + it.getCakeFillingParts()
+            }
         order.getCakes().forEach { cakeFromDto ->
             if (!cakesPart.any { it == cakeFromDto.getBase() } ||
                 !cakesPart.any { it == cakeFromDto.getCream() } ||
-                !cakesPart.any { it == cakeFromDto.getFilling() })
+                !cakesPart.any { it == cakeFromDto.getFilling() }
+            ) {
                 return false
+            }
         }
 
         return true

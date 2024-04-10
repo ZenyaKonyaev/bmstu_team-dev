@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.servlet.ModelAndView
 
-
 @RestController
 class MainPageController {
     @Autowired
@@ -42,25 +41,25 @@ class MainPageController {
 
     @GetMapping("/index", "/")
     fun getIndexPageData(
-        @AuthenticationPrincipal user: User?
+        @AuthenticationPrincipal user: User?,
     ): ModelAndView {
-
-        user?.let { dataSourceContextHolder.setContext(DataSourceEnum.DATA_SOURCE_AUTH) } ?:
-        dataSourceContextHolder.setContext(DataSourceEnum.DATA_SOURCE_UNKNOWN)
+        user?.let { dataSourceContextHolder.setContext(DataSourceEnum.DATA_SOURCE_AUTH) }
+            ?: dataSourceContextHolder.setContext(DataSourceEnum.DATA_SOURCE_UNKNOWN)
 
         logger.info(user?.let { "User with login ${user.username} enter to /index" } ?: "Unknown user enter to /index")
 
-         val response = MainPageRs(
-            productService.getProductCatalog().map { productConverter.convert(it) },
-             CakesFieldMainPageRs(
-                productService.getCakeBaseParts().map { cakePartConverter.convert(it) },
-                productService.getCakeFillingParts().map { cakePartConverter.convert(it) },
-                productService.getCakeCreamParts().map { cakePartConverter.convert(it) }
-            ),
-             user?.let {
-                 userService.getUser(it.username)!!.let { userConverter.convert(it) }
-             }
-         )
+        val response =
+            MainPageRs(
+                productService.getProductCatalog().map { productConverter.convert(it) },
+                CakesFieldMainPageRs(
+                    productService.getCakeBaseParts().map { cakePartConverter.convert(it) },
+                    productService.getCakeFillingParts().map { cakePartConverter.convert(it) },
+                    productService.getCakeCreamParts().map { cakePartConverter.convert(it) },
+                ),
+                user?.let {
+                    userService.getUser(it.username)!!.let { userConverter.convert(it) }
+                },
+            )
 
         logger.debug("Returning MainPageResponse: $response")
 

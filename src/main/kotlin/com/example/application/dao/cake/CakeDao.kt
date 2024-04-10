@@ -12,7 +12,11 @@ interface CakeDao {
 
     fun getCakePartById(id: Long): CakePartBusinessDto
 
-    fun getCakeByPartIds(idBase: Long, idFilling: Long, idCream: Long): CakeBusinessDto
+    fun getCakeByPartIds(
+        idBase: Long,
+        idFilling: Long,
+        idCream: Long,
+    ): CakeBusinessDto
 
     fun getAllCakes(): List<CakeBusinessDto>
 

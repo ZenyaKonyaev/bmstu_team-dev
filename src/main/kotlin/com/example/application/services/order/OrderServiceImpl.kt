@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
 @Component
-class OrderServiceImpl: OrderService {
+class OrderServiceImpl : OrderService {
     @Autowired
     private lateinit var orderDao: OrderDao
 
@@ -19,8 +19,9 @@ class OrderServiceImpl: OrderService {
     }
 
     override fun getOrder(id: String) =
-        try { orderDao.getOrderById(id) }
-        catch (ex: Exception) {
+        try {
+            orderDao.getOrderById(id)
+        } catch (ex: Exception) {
             logger.error("Get order by id=$id returns exception")
             null
         }

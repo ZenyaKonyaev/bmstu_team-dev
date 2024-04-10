@@ -11,20 +11,25 @@ class ProductBusinessDtoImpl(
     private var cost: Double = 0.0,
     private var imageUrl: String = "",
     private var addDescr: DescriptionBusinessDto,
-    private var bonus: List<BonusBusinessDto>? = null
-): ProductBusinessDto {
+    private var bonus: List<BonusBusinessDto>? = null,
+) : ProductBusinessDto {
     override fun getId() = id
+
     override fun getName() = name
+
     override fun getCost() = cost
+
     override fun getImgUrl() = imageUrl
+
     override fun getDescr() = addDescr
+
     override fun getBonuses() = bonus
 
     override fun equals(other: Any?): Boolean {
         val otherProduct = other as? ProductBusinessDto ?: return false
         return this.id == otherProduct.getId() &&
-                this.name == otherProduct.getName() &&
-                this.cost == otherProduct.getCost() &&
-                this.imageUrl == otherProduct.getImgUrl()
+            this.name == otherProduct.getName() &&
+            this.cost == otherProduct.getCost() &&
+            this.imageUrl == otherProduct.getImgUrl()
     }
 }

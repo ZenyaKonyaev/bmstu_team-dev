@@ -16,5 +16,5 @@ class DescriptionUIDto(
     @JsonProperty
     val amountFat: Double,
     @JsonProperty
-    val expiryTimeDays: Int
+    val expiryTimeDays: Int,
 )

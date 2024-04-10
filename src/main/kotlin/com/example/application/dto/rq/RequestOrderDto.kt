@@ -8,7 +8,7 @@ data class ProductDataElement(
     @JsonProperty("name")
     val name: String,
     @JsonProperty("cost")
-    val cost: Double
+    val cost: Double,
 )
 
 data class CakesDataElement(
@@ -17,12 +17,12 @@ data class CakesDataElement(
     @JsonProperty("fillingId")
     val fillingId: Int,
     @JsonProperty("creamId")
-    val creamId: Int
+    val creamId: Int,
 )
 
 data class RequestOrderDto(
     @JsonProperty("productData")
     val productData: List<ProductDataElement>,
     @JsonProperty("cakesData")
-    val cakesData: List<CakesDataElement>
+    val cakesData: List<CakesDataElement>,
 )

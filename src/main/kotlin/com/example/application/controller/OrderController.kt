@@ -60,7 +60,7 @@ class OrderController {
     @PostMapping
     fun getOrderPage(
         @RequestParam("dataCart") dtoString: String,
-        @AuthenticationPrincipal user: User
+        @AuthenticationPrincipal user: User,
     ): ModelAndView {
         dataSourceContextHolder.setContext(DataSourceEnum.DATA_SOURCE_AUTH)
 
@@ -76,16 +76,24 @@ class OrderController {
 
         logger.debug("Converted dataCart: $dto")
 
-        val orderUiDto = OrderUIDto(
-            id = UUID.randomUUID().toString(),
-            products = dto.productData.map {
-                productConverter.convert(productService.getProductById(it.intId.toLong()))
-            },
-            cakes = dto.cakesData.map {
-                cakeConverter.convert(productService.getCakeByPartIds(
-                    it.baseId.toLong(), it.fillingId.toLong(), it.creamId.toLong()))
-            }
-        )
+        val orderUiDto =
+            OrderUIDto(
+                id = UUID.randomUUID().toString(),
+                products =
+                    dto.productData.map {
+                        productConverter.convert(productService.getProductById(it.intId.toLong()))
+                    },
+                cakes =
+                    dto.cakesData.map {
+                        cakeConverter.convert(
+                            productService.getCakeByPartIds(
+                                it.baseId.toLong(),
+                                it.fillingId.toLong(),
+                                it.creamId.toLong(),
+                            ),
+                        )
+                    },
+            )
         val userDto = userConverter.convert(userService.getUser(user.username)!!)
 
         dataSourceContextHolder.clearContext()
@@ -100,19 +108,23 @@ class OrderController {
     @PostMapping("/create")
     fun createOrder(
         @ModelAttribute("orderData") orderUIDto: OrderUIDto,
-        @AuthenticationPrincipal user: User
+        @AuthenticationPrincipal user: User,
     ): ModelAndView {
         dataSourceContextHolder.setContext(DataSourceEnum.DATA_SOURCE_AUTH)
 
-        logger.info("Creating order by user with username=${user.username} and Order=${orderUIDto}")
+        logger.info("Creating order by user with username=${user.username} and Order=$orderUIDto")
         val userDto = userService.getUser(user.username)!!
         logger.debug("UserDto after converting AuthenticationPrincipal: id=${userDto.getId()}, login=${userDto.getLogin()}")
         val orderDto = orderConverter.convert(orderUIDto, userDto)
-        logger.debug("OrderDto after converting from orderUIDto: id=${orderDto.getOrderId()}, userId=${userDto.getId()}, userLogin=${userDto.getLogin()}")
+        logger.debug(
+            "OrderDto after converting from orderUIDto: id=${orderDto.getOrderId()}, userId=${userDto.getId()}, userLogin=${userDto.getLogin()}",
+        )
 
-        if (!orderValidationService.isCorrectOrder(orderDto)) ModelAndView().apply {
-            addObject("errorText", errorMsgRs)
-            viewName = "order"
+        if (!orderValidationService.isCorrectOrder(orderDto)) {
+            ModelAndView().apply {
+                addObject("errorText", errorMsgRs)
+                viewName = "order"
+            }
         }
 
         orderService.createOrder(orderDto)
@@ -122,6 +134,5 @@ class OrderController {
         return ModelAndView().apply {
             viewName = "redirect:/index"
         }
-
     }
 }

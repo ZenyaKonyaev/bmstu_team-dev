@@ -4,10 +4,9 @@ import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource
 import org.springframework.stereotype.Component
 import javax.sql.DataSource
 
-
 @Component
 class DataSourceRouting(
-    private val dataSourceContextHolder: DataSourceContextHolder
+    private val dataSourceContextHolder: DataSourceContextHolder,
 ) : AbstractRoutingDataSource() {
     init {
         val dataSourceMap: MutableMap<Any, Any> = HashMap()
@@ -37,9 +36,10 @@ class DataSourceRouting(
         return dataSource.also { dataSourceCommonConfig(it) }
     }
 
-    fun dataSourceCommonConfig(ds: DriverManagerDataSource) = ds.apply {
-        setDriverClassName("org.postgresql.Driver")
-        catalog = "postgres"
-        schema = "public"
-    }
+    fun dataSourceCommonConfig(ds: DriverManagerDataSource) =
+        ds.apply {
+            setDriverClassName("org.postgresql.Driver")
+            catalog = "postgres"
+            schema = "public"
+        }
 }

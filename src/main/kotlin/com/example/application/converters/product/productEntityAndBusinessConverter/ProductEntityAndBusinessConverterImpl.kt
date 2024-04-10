@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
 @Component
-class ProductEntityAndBusinessConverterImpl: ProductEntityAndBusinessConverter {
+class ProductEntityAndBusinessConverterImpl : ProductEntityAndBusinessConverter {
     @Autowired
     private lateinit var converterDescription: DescriptionEntityAndBusinessConverter
 
@@ -18,7 +18,7 @@ class ProductEntityAndBusinessConverterImpl: ProductEntityAndBusinessConverter {
             addDescr = converterDescription.convert(dto.getDescr()),
             name = dto.getName(),
             cost = dto.getCost(),
-            imgName = dto.getImgUrl()
+            imgName = dto.getImgUrl(),
         )
     }
 
@@ -28,8 +28,7 @@ class ProductEntityAndBusinessConverterImpl: ProductEntityAndBusinessConverter {
             addDescr = converterDescription.convert(dto.addDescr),
             name = dto.name,
             cost = dto.cost,
-            imageUrl = dto.imgName ?: ""
+            imageUrl = dto.imgName ?: "",
         )
     }
-
 }
