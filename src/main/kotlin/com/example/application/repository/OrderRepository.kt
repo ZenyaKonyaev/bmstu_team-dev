@@ -8,7 +8,7 @@ import javax.transaction.Transactional
 
 @Repository
 @Transactional
-interface OrderRepository: JpaRepository<OrderEntity, Long> {
+interface OrderRepository : JpaRepository<OrderEntity, Long> {
     @Query("SELECT o FROM OrderEntity o WHERE o.user.id =  ?1")
     fun getUserOrders(userId: Long): List<OrderEntity>
 

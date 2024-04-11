@@ -1,8 +1,8 @@
 package com.example.application.dto.order
 
 import com.example.application.dto.cake.CakeUIDto
-import com.example.application.enumerations.OrderStatusCode
 import com.example.application.dto.product.ProductUIDto
+import com.example.application.enumerations.OrderStatusCode
 import com.fasterxml.jackson.annotation.JsonProperty
 import java.util.*
 
@@ -22,5 +22,5 @@ data class OrderUIDto(
     @JsonProperty("products")
     val products: List<ProductUIDto> = listOf(),
     @JsonProperty("cakes")
-    val cakes: List<CakeUIDto> = listOf()
+    val cakes: List<CakeUIDto> = listOf(),
 )

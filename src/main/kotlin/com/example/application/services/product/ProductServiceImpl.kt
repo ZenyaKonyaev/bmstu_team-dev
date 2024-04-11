@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class ProductServiceImpl: ProductService {
+class ProductServiceImpl : ProductService {
     @Autowired
     private lateinit var productDao: ProductDao
 
@@ -17,11 +17,18 @@ class ProductServiceImpl: ProductService {
     private lateinit var cakeDao: CakeDao
 
     override fun getProductById(id: Long) = productDao.getProductById(id)
-    override fun getCakeByPartIds(idBase: Long, idFilling: Long, idCream: Long) = cakeDao.getCakeByPartIds(
-        idBase, idFilling, idCream
+
+    override fun getCakeByPartIds(
+        idBase: Long,
+        idFilling: Long,
+        idCream: Long,
+    ) = cakeDao.getCakeByPartIds(
+        idBase,
+        idFilling,
+        idCream,
     )
 
-    override fun getAllCakes():List<CakeBusinessDto> {
+    override fun getAllCakes(): List<CakeBusinessDto> {
         val start = System.nanoTime()
         val res = cakeDao.getAllCakes()
         val end = System.nanoTime()
@@ -55,6 +62,7 @@ class ProductServiceImpl: ProductService {
         val end = System.nanoTime()
         return res
     }
+
     override fun addProduct(product: ProductBusinessDto) {
         productDao.addProduct(product)
     }

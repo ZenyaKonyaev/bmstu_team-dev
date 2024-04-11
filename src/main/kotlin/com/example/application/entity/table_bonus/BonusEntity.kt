@@ -10,26 +10,22 @@ class BonusEntity(
     @Id
     @Column(name = "bonus_id")
     var id: Long,
-
     @Basic
     @Column(name = "bonus_value")
     var value: Double,
-
     @Basic
     @Column(name = "bonus_in_percent_flag")
     var inPercentFlag: Boolean,
-
     @Basic
     @Column(name = "bonus_start_date")
     var startDate: Date,
-
     @Basic
     @Column(name = "bonus_end_date")
-    var endDate: Date? = null
+    var endDate: Date? = null,
 ) {
     override fun toString(): String {
         return "TableBonusEntity(id=$id value=$value inPercentFlag=$inPercentFlag startDate=$startDate " +
-                "endDate=$endDate)"
+            "endDate=$endDate)"
     }
 
     override fun equals(o: Any?): Boolean {

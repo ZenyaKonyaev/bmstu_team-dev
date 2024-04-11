@@ -17,7 +17,7 @@ import org.springframework.dao.EmptyResultDataAccessException
 import org.springframework.stereotype.Repository
 
 @Repository
-class CakeDaoImpl: CakeDao {
+class CakeDaoImpl : CakeDao {
     @Autowired
     private lateinit var cakeRepository: CakeRepository
 
@@ -49,9 +49,11 @@ class CakeDaoImpl: CakeDao {
         try {
             cakes = cakePartRepository.getCakeFillingParts()
         } catch (ex: DataAccessException) {
-            logger.error("Cant get all cakes from cakeRepository.\n" +
+            logger.error(
+                "Cant get all cakes from cakeRepository.\n" +
                     "${ex.message}\n" +
-                    "${ex.cause}")
+                    "${ex.cause}",
+            )
             throw UnavailableTechnicalException(ex.stackTraceToString())
         }
 
@@ -63,9 +65,11 @@ class CakeDaoImpl: CakeDao {
         try {
             cakes = cakePartRepository.getCakeCreamParts()
         } catch (ex: DataAccessException) {
-            logger.error("Cant get all cakes from cakeRepository.\n" +
+            logger.error(
+                "Cant get all cakes from cakeRepository.\n" +
                     "${ex.message}\n" +
-                    "${ex.cause}")
+                    "${ex.cause}",
+            )
             throw UnavailableTechnicalException(ex.stackTraceToString())
         }
 
@@ -80,19 +84,26 @@ class CakeDaoImpl: CakeDao {
             logger.error("Cant find cake part by id=$id")
             throw DataBaseException("Cant find cake part by id=$id")
         } catch (ex: DataAccessException) {
-            logger.error("Cant getCakePartById by unknown DataAccessException. id = $id.\n" +
+            logger.error(
+                "Cant getCakePartById by unknown DataAccessException. id = $id.\n" +
                     "${ex.message}\n" +
-                    "${ex.cause}")
+                    "${ex.cause}",
+            )
             throw UnavailableTechnicalException(ex.stackTraceToString())
         }
 
         return cakePartConverter.convert(cakePart)
     }
 
-    override fun getCakeByPartIds(idBase: Long, idFilling: Long, idCream: Long): CakeBusinessDto {
-        val cake = cakeRepository.getAllCakes().find {
-            it.basePart.id == idBase && it.fillingPart.id == idFilling && it.creamPart.id == idCream
-        }?.let { cakeConverter.convert(it) }
+    override fun getCakeByPartIds(
+        idBase: Long,
+        idFilling: Long,
+        idCream: Long,
+    ): CakeBusinessDto {
+        val cake =
+            cakeRepository.getAllCakes().find {
+                it.basePart.id == idBase && it.fillingPart.id == idFilling && it.creamPart.id == idCream
+            }?.let { cakeConverter.convert(it) }
 
         if (cake == null) {
             logger.error("Cant find cake with part ids: (base=$idBase, filling=$idFilling, cream=$idCream)")

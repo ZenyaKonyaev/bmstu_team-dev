@@ -8,7 +8,7 @@ import javax.transaction.Transactional
 
 @Repository
 @Transactional
-interface CakePartRepository: JpaRepository<CakePartEntity, Long> {
+interface CakePartRepository : JpaRepository<CakePartEntity, Long> {
     @Query("SELECT p FROM CakePartEntity p WHERE p.id = ?1")
     fun getCakePartById(id: Long): CakePartEntity
 

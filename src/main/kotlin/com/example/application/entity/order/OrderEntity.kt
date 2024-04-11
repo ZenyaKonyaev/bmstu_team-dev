@@ -13,50 +13,42 @@ class OrderEntity(
     @Id
     @Column(name = "order_id")
     var id: String,
-
     @OneToOne
     @JoinColumn(name = "order_user_id", referencedColumnName = "user_id")
     var user: UserEntity,
-
     @ManyToMany
     @JoinTable(
         name = "table_order_to_product",
         joinColumns = [JoinColumn(name = "order_id")],
-        inverseJoinColumns = [JoinColumn(name = "product_id")]
+        inverseJoinColumns = [JoinColumn(name = "product_id")],
     )
     var products: List<ProductEntity>,
-
     @ManyToMany
     @JoinTable(
         name = "table_order_to_custom_cake",
         joinColumns = [JoinColumn(name = "order_id")],
-        inverseJoinColumns = [JoinColumn(name = "custom_cake_id")]
+        inverseJoinColumns = [JoinColumn(name = "custom_cake_id")],
     )
     var customCakes: List<CakeEntity>,
-
     @Basic
     @Column(name = "order_date_create")
     var dateCreate: Timestamp,
-
     @Basic
     @Column(name = "order_date_expiry")
     var dateExpiry: Date? = null,
-
     @Basic
     @Column(name = "order_address_to_send")
     var addressToSend: String,
-
     @Basic
     @Column(name = "order_description")
     var description: String? = null,
-
     @Basic
     @Column(name = "order_status_code")
-    var statusCode: Int
+    var statusCode: Int,
 ) {
     override fun toString(): String {
         return "TableOrderEntity(id=$id userId=$user dateCreate=$dateCreate dateExpiry=$dateExpiry " +
-                "addressToSend=$addressToSend description=$description statusCode=$statusCode)"
+            "addressToSend=$addressToSend description=$description statusCode=$statusCode)"
     }
 
     override fun equals(o: Any?): Boolean {

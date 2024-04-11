@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component
 import java.sql.Date
 
 @Component
-class UserEntityAndBusinessConverterImpl: UserEntityAndBusinessConverter {
+class UserEntityAndBusinessConverterImpl : UserEntityAndBusinessConverter {
     override fun convert(dto: UserEntity): UserBusinessDto {
         return UserBusinessDtoImpl(
             id = dto.id,
@@ -22,7 +22,7 @@ class UserEntityAndBusinessConverterImpl: UserEntityAndBusinessConverter {
             regDate = java.util.Date(dto.regdate.time),
             email = dto.email ?: "",
             tariffPlan = TariffPlan.findTariffPlanByCode(dto.tariffPlan),
-            role = Roles.findRoleByString(dto.role)
+            role = Roles.findRoleByString(dto.role),
         )
     }
 
@@ -38,8 +38,7 @@ class UserEntityAndBusinessConverterImpl: UserEntityAndBusinessConverter {
             regdate = Date(dto.getRegDate().time),
             email = dto.getEmail(),
             tariffPlan = dto.getTariffPlan().code,
-            role = dto.getRoles().first().role
+            role = dto.getRoles().first().role,
         )
     }
-
 }

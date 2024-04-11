@@ -7,18 +7,24 @@ import com.example.application.enumerations.Roles
 import org.springframework.stereotype.Component
 
 @Component
-class UserUiAndBusinessConverterImpl: UserUiAndBusinessConverter {
-    override fun convert(businessDto: UserBusinessDto) = UserUIDto(
-        businessDto.getId(),
-        businessDto.getName(),
-        businessDto.getSurname(),
-        businessDto.getLastName(),
-        businessDto.getAddress(),
-        businessDto.getRegDate(),
-        businessDto.getEmail()
-    )
+class UserUiAndBusinessConverterImpl : UserUiAndBusinessConverter {
+    override fun convert(businessDto: UserBusinessDto) =
+        UserUIDto(
+            businessDto.getId(),
+            businessDto.getName(),
+            businessDto.getSurname(),
+            businessDto.getLastName(),
+            businessDto.getAddress(),
+            businessDto.getRegDate(),
+            businessDto.getEmail(),
+        )
 
-    override fun convert(uiDto: UserUIDto, login: String, password: String, role: Roles) = UserBusinessDtoImpl(
+    override fun convert(
+        uiDto: UserUIDto,
+        login: String,
+        password: String,
+        role: Roles,
+    ) = UserBusinessDtoImpl(
         login = login,
         password = password,
         name = uiDto.name,
@@ -26,6 +32,6 @@ class UserUiAndBusinessConverterImpl: UserUiAndBusinessConverter {
         lastname = uiDto.lastname,
         address = uiDto.address,
         email = uiDto.email,
-        role = role
+        role = role,
     )
 }

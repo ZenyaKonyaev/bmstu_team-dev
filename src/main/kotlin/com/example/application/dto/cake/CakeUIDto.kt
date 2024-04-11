@@ -13,5 +13,5 @@ data class CakeUIDto(
     @JsonProperty
     val cream: CakePartUIDto,
     @JsonProperty
-    val totalCost: Double = 0.0
+    val totalCost: Double = 0.0,
 )

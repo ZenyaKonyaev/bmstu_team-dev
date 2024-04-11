@@ -10,19 +10,15 @@ class CakePartEntity(
     @Id
     @Column(name = "cake_part_id")
     var id: Long,
-
     @Basic
     @Column(name = "cake_part_name")
     var name: String,
-
     @Basic
     @Column(name = "cake_part_cost")
     var cost: Double,
-
     @Basic
     @Column(name = "cake_part_type")
     var type: Int,
-
     @OneToOne
     @JoinColumn(name = "cake_part_add_descr_id", referencedColumnName = "add_descr_id")
     var addDescr: DescrEntity,

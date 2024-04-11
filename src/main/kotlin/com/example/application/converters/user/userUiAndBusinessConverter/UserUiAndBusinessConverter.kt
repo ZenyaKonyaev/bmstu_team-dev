@@ -7,5 +7,10 @@ import com.example.application.enumerations.Roles
 interface UserUiAndBusinessConverter {
     fun convert(businessDto: UserBusinessDto): UserUIDto
 
-    fun convert(uiDto: UserUIDto, login: String, password: String, role: Roles): UserBusinessDto
+    fun convert(
+        uiDto: UserUIDto,
+        login: String,
+        password: String,
+        role: Roles,
+    ): UserBusinessDto
 }

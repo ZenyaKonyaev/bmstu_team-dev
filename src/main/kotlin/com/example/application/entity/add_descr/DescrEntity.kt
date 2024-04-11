@@ -9,38 +9,31 @@ class DescrEntity(
     @Id
     @Column(name = "add_descr_id")
     var id: Long = 0,
-
     @Basic
     @Column(name = "add_descr_title")
     var title: String,
-
     @Basic
     @Column(name = "add_descr_descr")
     var descr: String,
-
     @Basic
     @Column(name = "add_descr_img_name")
     var imgName: String,
-
     @Basic
     @Column(name = "add_descr_amount_carb")
     var amountCarb: Double = 0.0,
-
     @Basic
     @Column(name = "add_descr_amount_prot")
     var amountProt: Double = 0.0,
-
     @Basic
     @Column(name = "add_descr_amount_fat")
     var amountFat: Double = 0.0,
-
     @Basic
     @Column(name = "add_descr_expiry_time_days")
     var expiryTimeDays: Int = 0,
 ) {
     override fun toString(): String {
         return "TableAddDescrEntity(id=$id descr=$descr imgName=$imgName amountCarb=$amountCarb " +
-                "amountProt=$amountProt amountFat=$amountFat expiryTimeDays=$expiryTimeDays)"
+            "amountProt=$amountProt amountFat=$amountFat expiryTimeDays=$expiryTimeDays)"
     }
 
     override fun equals(o: Any?): Boolean {

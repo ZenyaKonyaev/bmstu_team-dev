@@ -17,61 +17,78 @@ class UserBusinessDtoImpl(
     private var regDate: Date = Date(),
     private var email: String = "",
     private var tariffPlan: TariffPlan = TariffPlan.DEFAULT,
-    private var role: Roles = Roles.UNKNOWN
-): UserBusinessDto {
+    private var role: Roles = Roles.UNKNOWN,
+) : UserBusinessDto {
     override fun getId() = id
+
     override fun getLogin() = login
+
     override fun getPassword() = password
+
     override fun getName() = name
+
     override fun getSurname() = surname
+
     override fun getLastName() = lastname
+
     override fun getAddress() = address
+
     override fun getRegDate() = regDate
+
     override fun getEmail() = email
+
     override fun getTariffPlan() = tariffPlan
+
     override fun getRoles() = listOf(role)
 
-    override fun setId(id: Long) = this.apply {
-        this.id = id
-    }
+    override fun setId(id: Long) =
+        this.apply {
+            this.id = id
+        }
 
-    override fun setLogin(login: String) = this.apply {
-        this.login = login
-    }
+    override fun setLogin(login: String) =
+        this.apply {
+            this.login = login
+        }
 
-    override fun setPassword(password: String) = this.apply {
-        this.password = password
-    }
+    override fun setPassword(password: String) =
+        this.apply {
+            this.password = password
+        }
 
-    override fun setName(name: String) = this.apply {
-        this.name = name
-    }
+    override fun setName(name: String) =
+        this.apply {
+            this.name = name
+        }
 
-    override fun setSurname(surname: String) = this.apply {
-        this.surname = surname
-    }
+    override fun setSurname(surname: String) =
+        this.apply {
+            this.surname = surname
+        }
 
-    override fun setLastName(lastname: String) = this.apply {
-        this.lastname = lastname
-    }
+    override fun setLastName(lastname: String) =
+        this.apply {
+            this.lastname = lastname
+        }
 
-    override fun setAddress(address: String) = this.apply {
-        this.address = address
-    }
+    override fun setAddress(address: String) =
+        this.apply {
+            this.address = address
+        }
 
-    override fun setEmail(email: String) = this.apply {
-        this.email = email
-    }
+    override fun setEmail(email: String) =
+        this.apply {
+            this.email = email
+        }
 
     override fun equals(other: Any?): Boolean {
         val otherUser = other as? UserBusinessDto ?: return false
 
         return this.getId() == otherUser.getId() &&
-        this.getLogin() == otherUser.getLogin() &&
-        this.getPassword() == otherUser.getPassword() &&
-        this.getName() == otherUser.getName() &&
-        this.getSurname() == otherUser.getSurname() &&
-        this.getLastName() == otherUser.getLastName()
+            this.getLogin() == otherUser.getLogin() &&
+            this.getPassword() == otherUser.getPassword() &&
+            this.getName() == otherUser.getName() &&
+            this.getSurname() == otherUser.getSurname() &&
+            this.getLastName() == otherUser.getLastName()
     }
-
 }

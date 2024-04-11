@@ -17,15 +17,23 @@ class OrderBusinessDtoImpl(
     private var statusCode: OrderStatusCode = OrderStatusCode.PREPARE,
     private var user: UserBusinessDto,
     private var products: List<ProductBusinessDto>,
-    private var cakes: List<CakeBusinessDto>
-): OrderBusinessDto {
+    private var cakes: List<CakeBusinessDto>,
+) : OrderBusinessDto {
     override fun getOrderId() = orderId
+
     override fun getUser() = user
+
     override fun getDateCreate() = dateCreate
+
     override fun getDateExpiry() = dateExpiry
+
     override fun getAddressToSend() = addressToSend
+
     override fun getDescription() = description
+
     override fun getStatusCode() = statusCode
+
     override fun getProducts() = products
+
     override fun getCakes() = cakes
 }

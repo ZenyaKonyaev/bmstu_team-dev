@@ -8,12 +8,20 @@ import java.util.*
 
 interface OrderBusinessDto {
     fun getOrderId(): String
+
     fun getUser(): UserBusinessDto
+
     fun getDateCreate(): Date
+
     fun getDateExpiry(): Date
+
     fun getAddressToSend(): String
+
     fun getDescription(): String
+
     fun getStatusCode(): OrderStatusCode
+
     fun getProducts(): List<ProductBusinessDto>
+
     fun getCakes(): List<CakeBusinessDto>
 }

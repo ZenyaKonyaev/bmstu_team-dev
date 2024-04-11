@@ -35,7 +35,7 @@ class RegistrationController {
         dataSourceContextHolder.setContext(DataSourceEnum.DATA_SOURCE_UNKNOWN)
         model.addAttribute("newUserDto", UserUIDto())
         dataSourceContextHolder.clearContext()
-       return "registration"
+        return "registration"
     }
 
     @PostMapping
@@ -43,11 +43,10 @@ class RegistrationController {
         @ModelAttribute("newUserDto") newUserUIDto: UserUIDto,
         @ModelAttribute("login") loginUser: String,
         @ModelAttribute("password") passwordUser: String,
-        model: Model
+        model: Model,
     ): String {
         dataSourceContextHolder.setContext(DataSourceEnum.DATA_SOURCE_UNKNOWN)
         val businessDto = userConverter.convert(newUserUIDto, loginUser, passwordUser, Roles.USER)
-
 
         val errors = userAccountValidator.validate(businessDto)
 

@@ -4,5 +4,5 @@ import com.example.application.enumerations.StatusRegistrationRs
 
 data class RegistrationPageRs(
     val status: StatusRegistrationRs,
-    val urlNextPage: String? = null
+    val urlNextPage: String? = null,
 )

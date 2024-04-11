@@ -11,5 +11,5 @@ class BonusUIDto(
     @JsonProperty
     val startDate: Date,
     @JsonProperty
-    val endDate: Date
+    val endDate: Date,
 )

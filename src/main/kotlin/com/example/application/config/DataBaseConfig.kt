@@ -16,15 +16,18 @@ import java.util.*
 import javax.annotation.Resource
 import javax.sql.DataSource
 
-
 @Configuration
-@EnableJpaRepositories(basePackages = ["com.example.application.repository"], transactionManagerRef = "transcationManager", entityManagerFactoryRef = "entityManager")
+@EnableJpaRepositories(
+    basePackages = ["com.example.application.repository"],
+    transactionManagerRef = "transcationManager",
+    entityManagerFactoryRef = "entityManager",
+)
 @EnableTransactionManagement
 @PropertySource("classpath:db.properties")
 @ComponentScan("com.example.application")
 @DependsOn("dataSourceRouting")
 class DataBaseConfig(
-    private val dataSourceRouting: DataSourceRouting
+    private val dataSourceRouting: DataSourceRouting,
 ) {
     @Resource
     private lateinit var env: Environment
@@ -48,8 +51,8 @@ class DataBaseConfig(
 
     @Bean(name = ["transcationManager"])
     fun transactionManager(
-        @Autowired @Qualifier("entityManager") entityManagerFactoryBean: LocalContainerEntityManagerFactoryBean
-    ): JpaTransactionManager  {
+        @Autowired @Qualifier("entityManager") entityManagerFactoryBean: LocalContainerEntityManagerFactoryBean,
+    ): JpaTransactionManager {
         return JpaTransactionManager(entityManagerFactoryBean.getObject()!!)
     }
 

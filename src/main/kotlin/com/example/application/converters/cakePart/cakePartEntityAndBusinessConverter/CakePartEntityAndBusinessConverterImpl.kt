@@ -1,10 +1,10 @@
 package com.example.application.converters.cakePart.cakePartEntityAndBusinessConverter
 
+import com.example.application.converters.description.descriptionEntityAndBusinessConverter.DescriptionEntityAndBusinessConverter
 import com.example.application.dto.cakePart.CakePartBusinessDto
 import com.example.application.dto.cakePart.CakePartBusinessDtoImpl
 import com.example.application.entity.cake_part.CakePartEntity
 import com.example.application.enumerations.CakePartType
-import com.example.application.converters.description.descriptionEntityAndBusinessConverter.DescriptionEntityAndBusinessConverter
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
@@ -19,7 +19,7 @@ class CakePartEntityAndBusinessConverterImpl : CakePartEntityAndBusinessConverte
             name = dto.getName(),
             cost = dto.getCost(),
             type = dto.getType().type,
-            addDescr = addDescrConverter.convert(dto.getDescription())
+            addDescr = addDescrConverter.convert(dto.getDescription()),
         )
     }
 
@@ -29,7 +29,7 @@ class CakePartEntityAndBusinessConverterImpl : CakePartEntityAndBusinessConverte
             name = dto.name,
             cost = dto.cost,
             type = CakePartType.getTypeCakeByType(dto.type),
-            description = addDescrConverter.convert(dto.addDescr)
+            description = addDescrConverter.convert(dto.addDescr),
         )
     }
 }

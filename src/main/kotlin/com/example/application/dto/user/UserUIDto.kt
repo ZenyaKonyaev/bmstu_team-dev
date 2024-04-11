@@ -17,5 +17,5 @@ data class UserUIDto(
     @JsonProperty
     val regDate: Date = Date(),
     @JsonProperty
-    val email: String = ""
+    val email: String = "",
 )

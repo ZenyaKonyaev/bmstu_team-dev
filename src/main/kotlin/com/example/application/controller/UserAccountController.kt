@@ -33,18 +33,21 @@ class UserAccountController {
     private lateinit var dataSourceContextHolder: DataSourceContextHolder
 
     @GetMapping
-    fun getInfoAccountData(@AuthenticationPrincipal user: User): ModelAndView {
+    fun getInfoAccountData(
+        @AuthenticationPrincipal user: User,
+    ): ModelAndView {
         dataSourceContextHolder.setContext(DataSourceEnum.DATA_SOURCE_AUTH)
 
         val userDto = userService.getUser(user.username)!!
         val orders = orderService.getUserOrders(userDto)
 
-        val response = InfoAccountPageRs(
-            userConverter.convert(
-                userService.getUser(user.username)!!
-            ),
-            orders.map{ orderConverter.convert(it) }
-        )
+        val response =
+            InfoAccountPageRs(
+                userConverter.convert(
+                    userService.getUser(user.username)!!,
+                ),
+                orders.map { orderConverter.convert(it) },
+            )
 
         dataSourceContextHolder.clearContext()
 
@@ -58,7 +61,7 @@ class UserAccountController {
     @PostMapping("/updateInfo")
     fun changeInfoAccount(
         @AuthenticationPrincipal user: User,
-        @ModelAttribute("updatedUser") updatedUserUIDto: UserUIDto
+        @ModelAttribute("updatedUser") updatedUserUIDto: UserUIDto,
     ): ModelAndView {
         dataSourceContextHolder.setContext(DataSourceEnum.DATA_SOURCE_AUTH)
 

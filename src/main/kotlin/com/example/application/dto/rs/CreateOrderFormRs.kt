@@ -7,5 +7,5 @@ data class CreateOrderFormRs(
     @JsonProperty
     val msg: String,
     @JsonProperty
-    val status: StatusCreateOrderRq
+    val status: StatusCreateOrderRq,
 )

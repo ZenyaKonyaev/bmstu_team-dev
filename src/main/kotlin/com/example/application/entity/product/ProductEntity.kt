@@ -10,22 +10,18 @@ class ProductEntity(
     @Id
     @Column(name = "product_id")
     var id: Long,
-
     @OneToOne
     @JoinColumn(name = "product_add_descr_id", referencedColumnName = "add_descr_id")
     var addDescr: DescrEntity,
-
     @Basic
     @Column(name = "product_name")
     var name: String,
-
     @Basic
     @Column(name = "product_cost")
     var cost: Double,
-
     @Basic
     @Column(name = "product_img_name")
-    var imgName: String? = null
+    var imgName: String? = null,
 ) {
     override fun toString(): String {
         return "TableProductEntity(id=$id addDescrId=($addDescr) name=$name cost=$cost imgName=$imgName)"

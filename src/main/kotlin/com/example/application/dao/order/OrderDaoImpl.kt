@@ -1,6 +1,5 @@
 package com.example.application.dao.order
 
-
 import com.example.application.converters.order.orderEntityAndBusinessConverter.OrderEntityAndBusinessConverter
 import com.example.application.dto.order.OrderBusinessDto
 import com.example.application.entity.order.OrderEntity
@@ -16,7 +15,7 @@ import javax.transaction.Transactional
 
 @Repository
 @Transactional
-class OrderDaoImpl: OrderDao {
+class OrderDaoImpl : OrderDao {
     @Autowired
     private lateinit var orderRepository: OrderRepository
 
