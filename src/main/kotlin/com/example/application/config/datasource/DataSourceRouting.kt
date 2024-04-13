@@ -22,7 +22,7 @@ class DataSourceRouting(
 
     fun dataSourceUnknownConfig(): DataSource {
         val dataSource = DriverManagerDataSource()
-        dataSource.url = "jdbc:postgresql://localhost:32768/postgres"
+        dataSource.url = "jdbc:postgresql://0.0.0.0:32768/postgres"
         dataSource.username = "guest"
         dataSource.password = "guest"
         return dataSource.also { dataSourceCommonConfig(it) }
@@ -30,7 +30,7 @@ class DataSourceRouting(
 
     fun dataSourceAuthConfig(): DataSource {
         val dataSource = DriverManagerDataSource()
-        dataSource.url = "jdbc:postgresql://localhost:32768/postgres"
+        dataSource.url = "jdbc:postgresql://0.0.0.0:32768/postgres"
         dataSource.username = "authorized"
         dataSource.password = "authorized"
         return dataSource.also { dataSourceCommonConfig(it) }

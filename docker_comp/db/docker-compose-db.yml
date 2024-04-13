@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    container_name: db-db-1
+    restart: always
+    ports:
+      - "0.0.0.0:32768:5432"  # Перенаправляем порт контейнера PostgreSQL на локальный порт 32768
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # Монтируем скрипт инициализации в контейнер
+    environment:
+      POSTGRES_DB: postgres  # Имя базы данных
+      POSTGRES_USER: postgres  # Пользователь PostgreSQL
+      POSTGRES_PASSWORD: example
