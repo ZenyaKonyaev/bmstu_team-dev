@@ -16,7 +16,7 @@ create table if not exists  table_user
 insert into table_user(user_login, user_password, user_name, user_surname, user_lastname, user_address, user_regdate,
                        user_email, user_tariff_plan, user_role)
 values ('zenya', '$2a$12$ShWWiQQvSWPOAnPudUVPSO7nZPv5yXmqa10T/Wz3Hd3guEWiBPBgy',
-                               'Евгений', 'Коняев', 'Андреевич', 'Москва', '2012-12-12', 'test_value', 1, 'ROLE_ADMIN');
+        'Евгений', 'Коняев', 'Андреевич', 'Москва', '2012-12-12', 'test_value', 1, 'ROLE_ADMIN');
 
 -----------------------------
 

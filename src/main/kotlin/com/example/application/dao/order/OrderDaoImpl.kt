@@ -14,7 +14,6 @@ import org.springframework.stereotype.Repository
 import javax.transaction.Transactional
 
 @Repository
-@Transactional
 class OrderDaoImpl : OrderDao {
     @Autowired
     private lateinit var orderRepository: OrderRepository
