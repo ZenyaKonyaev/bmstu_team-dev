@@ -9,13 +9,13 @@ DROP OWNED BY "admin";
 drop role "admin";
 
 create role guest with
-login
-nosuperuser
-nocreatedb
-nocreaterole
-noreplication
-password 'guest'
-connection limit -1;
+    login
+    nosuperuser
+    nocreatedb
+    nocreaterole
+    noreplication
+    password 'guest'
+    connection limit -1;
 
 grant select on
     public.table_user,
@@ -23,22 +23,22 @@ grant select on
     public.table_custom_cake,
     public.table_cake_part,
     public.table_add_descr
-to guest;
+    to guest;
 
 grant insert on
     public.table_user
-to guest;
+    to guest;
 
 grant usage, select on sequence table_user_user_id_seq to guest;
 
 create role authorized with
-login
-nosuperuser
-nocreatedb
-nocreaterole
-noreplication
-password 'authorized'
-connection limit -1;
+    login
+    nosuperuser
+    nocreatedb
+    nocreaterole
+    noreplication
+    password 'authorized'
+    connection limit -1;
 
 grant select on
     public.table_user,
@@ -46,7 +46,7 @@ grant select on
     public.table_custom_cake,
     public.table_cake_part,
     public.table_add_descr
-to authorized;
+    to authorized;
 
 grant select on
     public.table_user,
@@ -57,21 +57,21 @@ grant select on
     public.table_order,
     public.table_order_to_product,
     public.table_order_to_custom_cake
-to authorized;
+    to authorized;
 
 grant update on
     public.table_user
-to authorized;
+    to authorized;
 grant insert on public.table_order, public.table_order_to_custom_cake, public.table_order_to_product to authorized;
 
 create role admin with
-login
-nosuperuser
-nocreatedb
-nocreaterole
-noreplication
-password 'admin'
-connection limit -1;
+    login
+    nosuperuser
+    nocreatedb
+    nocreaterole
+    noreplication
+    password 'admin'
+    connection limit -1;
 
 grant all privileges on all tables in schema public to admin;
 GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO admin;
