@@ -6,6 +6,9 @@ import com.example.application.dto.user.UserUIDto
 import com.example.application.enumerations.Roles
 import org.springframework.stereotype.Component
 
+/**
+ * Реализация UserUiAndBusinessConverter для типов UserUIDto и UserBusinessDtoImpl
+ */
 @Component
 class UserUiAndBusinessConverterImpl : UserUiAndBusinessConverter {
     override fun convert(businessDto: UserBusinessDto) =

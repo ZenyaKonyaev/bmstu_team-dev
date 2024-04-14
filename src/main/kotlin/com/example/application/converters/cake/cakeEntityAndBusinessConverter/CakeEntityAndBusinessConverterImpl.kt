@@ -7,6 +7,9 @@ import com.example.application.entity.custom_cake.CakeEntity
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
+/**
+ * Реализация интерофейса CakeEntityAndBusinessConverter для типов CakeBusinessDtoImpl и CakeEntity
+ */
 @Component
 class CakeEntityAndBusinessConverterImpl : CakeEntityAndBusinessConverter {
     @Autowired

@@ -7,6 +7,18 @@ import java.sql.Date
 import java.sql.Timestamp
 import javax.persistence.*
 
+/**
+ * БД сущность заказа
+ * @param id идентификатор
+ * @param user владелец заказа
+ * @param products продукты в заказе
+ * @param customCakes торты в заказе
+ * @param dateCreate дата создания
+ * @param dateExpiry дата окончания
+ * @param addressToSend адрес доставки
+ * @param description описание заказа
+ * @param statusCode статус заказа
+ */
 @Entity
 @Table(name = "table_order", schema = "public", catalog = "postgres")
 class OrderEntity(

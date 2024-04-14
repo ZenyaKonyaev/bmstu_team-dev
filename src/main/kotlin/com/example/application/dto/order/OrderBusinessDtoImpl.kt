@@ -7,6 +7,9 @@ import com.example.application.enumerations.OrderStatusCode
 import org.springframework.stereotype.Component
 import java.util.Date
 
+/**
+ * Реализация OrderBusinessDto
+ */
 @Component
 class OrderBusinessDtoImpl(
     private var orderId: String = "",

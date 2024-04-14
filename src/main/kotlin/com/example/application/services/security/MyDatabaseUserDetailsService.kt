@@ -10,6 +10,9 @@ import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.stereotype.Component
 
+/**
+ * Реализация UserDetailsService по загрузке клиента для SpringSecurity
+ */
 @Component
 class MyDatabaseUserDetailsService : UserDetailsService {
     @Autowired
@@ -18,6 +21,11 @@ class MyDatabaseUserDetailsService : UserDetailsService {
     @Autowired
     private lateinit var userContextHolder: DataSourceContextHolder
 
+    /**
+     * Поиск клиента по его логину
+     * @param username логин пользователя
+     * @return пользователь в формате используемом в SpringSecurity
+     */
     override fun loadUserByUsername(username: String?): UserDetails {
         val userDto = userService.getUser(username ?: "") ?: throw UsernameNotFoundException(username)
 

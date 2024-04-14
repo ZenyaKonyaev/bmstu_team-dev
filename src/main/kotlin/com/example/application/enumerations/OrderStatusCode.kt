@@ -1,5 +1,10 @@
 package com.example.application.enumerations
 
+/**
+ * Перечисления статусов заказа
+ * @param statusCode код статуса
+ * @param statusName текст статуса
+ */
 enum class OrderStatusCode(
     val statusCode: Int,
     val statusName: String,

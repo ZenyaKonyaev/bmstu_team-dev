@@ -4,6 +4,9 @@ import com.example.application.dto.description.DescriptionBusinessDto
 import com.example.application.enumerations.CakePartType
 import org.springframework.stereotype.Component
 
+/**
+ * Реализация CakePartBusinessDto
+ */
 @Component
 class CakePartBusinessDtoImpl(
     private var id: Long = 0,

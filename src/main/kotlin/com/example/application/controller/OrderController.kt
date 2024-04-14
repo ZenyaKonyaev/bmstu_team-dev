@@ -22,6 +22,9 @@ import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.ModelAndView
 import java.util.*
 
+/**
+ * Контроллер страницы заказов (все запросы с префиксом /order)
+ */
 @RestController
 @RequestMapping("/order")
 @SessionAttributes("orderData")
@@ -57,6 +60,12 @@ class OrderController {
 
     private val errorMsgRs = "Ошибка при валидации заказа!"
 
+    /**
+     * Запрос на страницу создания заказа
+     * @param dtoString сериализованная строка класса RequestOrderDto который представляет заказ, который будет осуществляться
+     * @param user пользователь для которого осуществляется заказ, полученный из SpringWebSecurity
+     * @return представление страницы заказа с именем order и объектами orderData (orderUiDto) и user (userDto)
+     */
     @PostMapping
     fun getOrderPage(
         @RequestParam("dataCart") dtoString: String,
@@ -105,6 +114,12 @@ class OrderController {
         }
     }
 
+    /**
+     * Запрос на создание заказа
+     * @param orderUIDto данные по заказу, полученные на странице заказа
+     * @param user пользователь для которого создается заказ, полученный из SpringWebSecurity
+     * @return представление соответсвующее главной странице, если заказ обработан успешно, либо возврат на страницу заказа, елси произошла ошибка валидации заказа
+     */
     @PostMapping("/create")
     fun createOrder(
         @ModelAttribute("orderData") orderUIDto: OrderUIDto,

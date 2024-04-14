@@ -11,6 +11,9 @@ import com.example.application.dto.user.UserBusinessDto
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
+/**
+ * Реализация OrderUiAndBusinessConverter для типов OrderBusinessDtoImpl и OrderUIDto
+ */
 @Component
 class OrderUiAndBusinessConverterImpl : OrderUiAndBusinessConverter {
     @Autowired

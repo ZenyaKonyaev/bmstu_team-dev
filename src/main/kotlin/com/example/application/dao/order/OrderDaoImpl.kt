@@ -13,6 +13,9 @@ import org.springframework.dao.EmptyResultDataAccessException
 import org.springframework.stereotype.Repository
 import javax.transaction.Transactional
 
+/**
+ * Реализация OrderDao для JPA репозитория
+ */
 @Repository
 class OrderDaoImpl : OrderDao {
     @Autowired

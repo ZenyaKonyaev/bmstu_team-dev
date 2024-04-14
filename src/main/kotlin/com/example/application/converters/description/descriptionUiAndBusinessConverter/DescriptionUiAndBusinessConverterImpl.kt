@@ -4,6 +4,9 @@ import com.example.application.dto.description.DescriptionBusinessDto
 import com.example.application.dto.description.DescriptionUIDto
 import org.springframework.stereotype.Component
 
+/**
+ * Реализация DescriptionUiAndBusinessConverter для DescriptionUIDto
+ */
 @Component
 class DescriptionUiAndBusinessConverterImpl : DescriptionUiAndBusinessConverter {
     override fun convert(businessDto: DescriptionBusinessDto) =

@@ -3,6 +3,13 @@ package com.example.application.entity.custom_cake
 import com.example.application.entity.cake_part.CakePartEntity
 import javax.persistence.*
 
+/**
+ * БД сущность торта
+ * @param id идентификатор
+ * @param basePart основа
+ * @param fillingPart начинка
+ * @param creamPart крем торта
+ */
 @Entity
 @Table(name = "table_custom_cake", schema = "public", catalog = "postgres")
 class CakeEntity(

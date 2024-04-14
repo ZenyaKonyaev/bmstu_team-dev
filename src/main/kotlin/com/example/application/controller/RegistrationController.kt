@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 
+
+/**
+ * Контроллер страницы регистрации. Все запросы делаются с префиксом /registration
+ */
 @Controller
 @RequestMapping("/registration")
 class RegistrationController {
@@ -30,6 +34,11 @@ class RegistrationController {
     @Autowired
     private lateinit var dataSourceContextHolder: DataSourceContextHolder
 
+    /**
+     * Получить страницу регистрации
+     * @param model модель передаваемая SpringBoot приложением
+     * @return имя представление страницы регистрации
+     */
     @GetMapping
     fun getRegistrationPage(model: Model): String {
         dataSourceContextHolder.setContext(DataSourceEnum.DATA_SOURCE_UNKNOWN)
@@ -38,6 +47,14 @@ class RegistrationController {
         return "registration"
     }
 
+    /**
+     * Зарегистрировать нового пользователя
+     * @param newUserUIDto новый регистрируемый пользователь, полученный со страницы регистрации
+     * @param loginUser логин регистрируемого пользователя
+     * @param passwordUser пароль регистрируемого пользователя
+     * @param model модель передаваемая SpringBoot приложением
+     * @return представление страницы с входом в аккаунт пользователя
+     */
     @PostMapping
     fun registerNewUser(
         @ModelAttribute("newUserDto") newUserUIDto: UserUIDto,

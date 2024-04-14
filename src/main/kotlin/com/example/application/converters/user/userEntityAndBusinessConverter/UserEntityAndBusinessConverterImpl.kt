@@ -8,6 +8,9 @@ import com.example.application.enumerations.TariffPlan
 import org.springframework.stereotype.Component
 import java.sql.Date
 
+/**
+ * Реализация UserEntityAndBusinessConverter для UserBusinessDtoImpl и UserEntity
+ */
 @Component
 class UserEntityAndBusinessConverterImpl : UserEntityAndBusinessConverter {
     override fun convert(dto: UserEntity): UserBusinessDto {

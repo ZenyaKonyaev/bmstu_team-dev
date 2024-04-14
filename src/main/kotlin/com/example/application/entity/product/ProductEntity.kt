@@ -3,6 +3,14 @@ package com.example.application.entity.product
 import com.example.application.entity.add_descr.DescrEntity
 import javax.persistence.*
 
+/**
+ * БД сущность продукта
+ * @param id идентификатор
+ * @param addDescr дополнительное описание
+ * @param name наименование
+ * @param cost цена
+ * @param imgName url картинки
+ */
 @Entity
 @Table(name = "table_product", schema = "public", catalog = "postgres")
 class ProductEntity(

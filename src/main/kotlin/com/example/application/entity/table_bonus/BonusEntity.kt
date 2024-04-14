@@ -3,6 +3,14 @@ package com.example.application.entity.table_bonus
 import java.sql.Date
 import javax.persistence.*
 
+/**
+ * БД сущность бонуса
+ * @param id идентификатор
+ * @param value значение
+ * @param inPercentFlag флаг того, что значение в процентах
+ * @param startDate дата начала действия
+ * @param endDate дата окончания действия
+ */
 @Entity
 @Table(name = "table_bonus", schema = "public", catalog = "postgres")
 class BonusEntity(

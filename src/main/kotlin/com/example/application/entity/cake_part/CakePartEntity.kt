@@ -3,6 +3,14 @@ package com.example.application.entity.cake_part
 import com.example.application.entity.add_descr.DescrEntity
 import javax.persistence.*
 
+/**
+ * БД сущность части торта
+ * @param id идентификатор
+ * @param name наименование
+ * @param cost цена
+ * @param type тип части
+ * @param addDescr дополнительное описание
+ */
 @Entity
 @Table(name = "table_cake_part", schema = "public", catalog = "postgres")
 class CakePartEntity(

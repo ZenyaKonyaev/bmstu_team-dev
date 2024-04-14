@@ -5,6 +5,9 @@ import com.example.application.enumerations.TariffPlan
 import org.springframework.stereotype.Component
 import java.util.*
 
+/**
+ * Реализация UserBusinessDto
+ */
 @Component
 class UserBusinessDtoImpl(
     private var id: Long = 0L,

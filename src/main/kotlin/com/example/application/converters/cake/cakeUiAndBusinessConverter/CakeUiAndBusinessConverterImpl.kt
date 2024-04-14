@@ -8,6 +8,9 @@ import com.example.application.repository.CakeRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
+/**
+ * Реализациия CakeUiAndBusinessConverter для типов CakeUIDto и CakeBusinessDtoImpl
+ */
 @Component
 class CakeUiAndBusinessConverterImpl : CakeUiAndBusinessConverter {
     @Autowired

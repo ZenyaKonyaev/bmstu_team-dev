@@ -5,6 +5,9 @@ import com.example.application.dto.description.DescriptionBusinessDtoImpl
 import com.example.application.entity.add_descr.DescrEntity
 import org.springframework.stereotype.Component
 
+/**
+ * Реализация DescriptionEntityAndBusinessConverter для типов DescrEntity и DescriptionBusinessDtoImpl
+ */
 @Component
 class DescriptionEntityAndBusinessConverterImpl : DescriptionEntityAndBusinessConverter {
     override fun convert(dto: DescriptionBusinessDto): DescrEntity {

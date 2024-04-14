@@ -4,6 +4,10 @@ import com.example.application.dto.bonus.BonusBusinessDto
 import com.example.application.dto.bonus.BonusUIDto
 import org.springframework.stereotype.Component
 
+
+/**
+ * Реализация интерфейса BonusUiAndBusinessConverter для типа BonusUIDto
+ */
 @Component
 class BonusUiAndBusinessConverterImpl : BonusUiAndBusinessConverter {
     override fun convert(businessDto: BonusBusinessDto) =

@@ -13,6 +13,10 @@ import org.springframework.dao.EmptyResultDataAccessException
 import org.springframework.stereotype.Repository
 import javax.transaction.Transactional
 
+/**
+ * Реализация UserDao для JPA репозитория
+ */
+
 @Repository
 @Transactional
 @Primary
