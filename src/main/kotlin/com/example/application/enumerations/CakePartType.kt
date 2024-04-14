@@ -1,5 +1,9 @@
 package com.example.application.enumerations
 
+/**
+ * Перечисления типов частей торта
+ * @param type код типа
+ */
 enum class CakePartType(val type: Int) {
     UNKNOWN(0),
     BASE(1),

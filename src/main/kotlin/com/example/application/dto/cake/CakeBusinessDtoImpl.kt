@@ -3,6 +3,9 @@ package com.example.application.dto.cake
 import com.example.application.dto.cakePart.CakePartBusinessDto
 import org.springframework.stereotype.Component
 
+/**
+ * Реализация CakeBusinessDto
+ */
 @Component
 class CakeBusinessDtoImpl(
     private var id: Long = 0L,

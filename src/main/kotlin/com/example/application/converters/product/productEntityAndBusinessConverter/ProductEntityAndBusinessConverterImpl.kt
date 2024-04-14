@@ -7,6 +7,9 @@ import com.example.application.entity.product.ProductEntity
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
+/**
+ * Реализация ProductEntityAndBusinessConverter для типов ProductEntity и ProductBusinessDtoImpl
+ */
 @Component
 class ProductEntityAndBusinessConverterImpl : ProductEntityAndBusinessConverter {
     @Autowired

@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.servlet.ModelAndView
 
+/**
+ * Контроллер главной страницы сайта
+ */
 @RestController
 class MainPageController {
     @Autowired
@@ -39,6 +42,12 @@ class MainPageController {
 
     private val logger = LogManager.getLogger(MainPageController::class.java)
 
+    /**
+     * Получить главную страницу сайта
+     *
+     * @param user пользователь (если он есть), полученный из страницы login из SpringWebSecurity
+     * @return представление страницы (с именем home) и responseData формата MainPageRs
+     */
     @GetMapping("/index", "/")
     fun getIndexPageData(
         @AuthenticationPrincipal user: User?,

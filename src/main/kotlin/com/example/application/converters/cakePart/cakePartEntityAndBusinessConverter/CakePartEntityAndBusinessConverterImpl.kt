@@ -8,6 +8,9 @@ import com.example.application.enumerations.CakePartType
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
+/**
+ * Реализация CakePartEntityAndBusinessConverter для типов CakePartEntity и CakePartBusinessDtoImpl
+ */
 @Component
 class CakePartEntityAndBusinessConverterImpl : CakePartEntityAndBusinessConverter {
     @Autowired

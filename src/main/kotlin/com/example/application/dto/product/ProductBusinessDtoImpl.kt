@@ -4,6 +4,9 @@ import com.example.application.dto.bonus.BonusBusinessDto
 import com.example.application.dto.description.DescriptionBusinessDto
 import org.springframework.stereotype.Component
 
+/**
+ * Реализация ProductBusinessDto
+ */
 @Component
 class ProductBusinessDtoImpl(
     private var id: Long = 0L,

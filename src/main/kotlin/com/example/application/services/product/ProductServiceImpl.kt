@@ -8,6 +8,9 @@ import com.example.application.dto.product.ProductBusinessDto
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
+/**
+ * Реализация ProductService
+ */
 @Service
 class ProductServiceImpl : ProductService {
     @Autowired
@@ -27,13 +30,6 @@ class ProductServiceImpl : ProductService {
         idFilling,
         idCream,
     )
-
-    override fun getAllCakes(): List<CakeBusinessDto> {
-        val start = System.nanoTime()
-        val res = cakeDao.getAllCakes()
-        val end = System.nanoTime()
-        return res
-    }
 
     override fun getProductCatalog(): List<ProductBusinessDto> {
         val start = System.nanoTime()
@@ -61,29 +57,5 @@ class ProductServiceImpl : ProductService {
         val res = cakeDao.getCakeCreamParts()
         val end = System.nanoTime()
         return res
-    }
-
-    override fun addProduct(product: ProductBusinessDto) {
-        productDao.addProduct(product)
-    }
-
-    override fun deleteProduct(productId: Long) {
-        productDao.deleteProduct(productId)
-    }
-
-    override fun addCakePart(cakePart: CakePartBusinessDto) {
-        cakeDao.addCakePart(cakePart)
-    }
-
-    override fun deleteCakePart(cakePartId: Long) {
-        cakeDao.deleteCakePart(cakePartId)
-    }
-
-    override fun addCake(cakeDto: CakeBusinessDto) {
-        cakeDao.addCake(cakeDto)
-    }
-
-    override fun deleteCake(cakeId: Long) {
-        cakeDao.deleteCake(cakeId)
     }
 }

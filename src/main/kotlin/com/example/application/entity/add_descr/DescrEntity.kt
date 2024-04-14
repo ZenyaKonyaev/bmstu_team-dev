@@ -2,6 +2,17 @@ package com.example.application.entity.add_descr
 
 import javax.persistence.*
 
+/**
+ * БД сущность описания
+ * @param id идентификатор
+ * @param title заголовок
+ * @param descr описание
+ * @param imgName url к кратинке
+ * @param amountCarb кол-во углеводов
+ * @param amountProt кол-во протеинов
+ * @param amountFat кол-во жиров
+ * @param expiryTimeDays срок годности в днях
+ */
 @Entity
 @Table(name = "table_add_descr", schema = "public", catalog = "postgres")
 class DescrEntity(

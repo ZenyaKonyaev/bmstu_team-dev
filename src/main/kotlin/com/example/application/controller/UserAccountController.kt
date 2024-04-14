@@ -14,6 +14,10 @@ import org.springframework.security.core.userdetails.User
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.ModelAndView
 
+
+/**
+ * Контроллер аккаунта пользователя. Все запросы делаются с префиксом /account
+ */
 @RestController
 @RequestMapping("/account")
 class UserAccountController {
@@ -32,6 +36,11 @@ class UserAccountController {
     @Autowired
     private lateinit var dataSourceContextHolder: DataSourceContextHolder
 
+    /**
+     * Получить страницу личного кабинета пользователя
+     * @param user пользователь для которого запрашивается страница личного кабинета, полученный при авторизации через WebSpringSecurity
+     * @return представление страницы личного кабинета пользователя, а также объекты responseData (InfoAccountPageRs) и updatedUser (UserUIDto)
+     */
     @GetMapping
     fun getInfoAccountData(
         @AuthenticationPrincipal user: User,

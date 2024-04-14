@@ -13,6 +13,9 @@ import org.springframework.dao.EmptyResultDataAccessException
 import org.springframework.stereotype.Repository
 import javax.transaction.Transactional
 
+/**
+ * Реализация ProductDao для JPA репозитория
+ */
 @Repository
 @Transactional
 class ProductDaoImpl : ProductDao {

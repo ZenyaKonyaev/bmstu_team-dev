@@ -2,6 +2,9 @@ package com.example.application.dto.description
 
 import org.springframework.stereotype.Component
 
+/**
+ * Реализация DescriptionBusinessDto
+ */
 @Component
 class DescriptionBusinessDtoImpl(
     private var id: Long = 0,

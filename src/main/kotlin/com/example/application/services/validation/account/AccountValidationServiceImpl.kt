@@ -6,6 +6,9 @@ import com.example.application.services.user.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
+/**
+ * Реализация AccountValidationService
+ */
 @Service
 class AccountValidationServiceImpl : AccountValidationService {
     @Autowired

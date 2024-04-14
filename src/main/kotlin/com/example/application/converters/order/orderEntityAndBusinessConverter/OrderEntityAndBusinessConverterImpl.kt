@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component
 import java.sql.Date
 import java.sql.Timestamp
 
+/**
+ * Реализация OrderEntityAndBusinessConverter для типов OrderEntity и OrderBusinessDtoImpl
+ */
 @Component
 class OrderEntityAndBusinessConverterImpl : OrderEntityAndBusinessConverter {
     @Autowired

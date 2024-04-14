@@ -4,14 +4,19 @@ import com.example.application.dao.user.UserDao
 import com.example.application.dto.user.UserBusinessDto
 import com.example.application.exception.BaseException
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 
+/**
+ * Реализация UserService
+ */
 @Service
 class UserServiceImpl : UserService {
     @Autowired
     private lateinit var userDao: UserDao
 
-    // TODO добавить password_encoder
+    @Autowired
+    private lateinit var passwordEncoder: PasswordEncoder
 
     override fun getUser(login: String) =
         try {
@@ -35,7 +40,7 @@ class UserServiceImpl : UserService {
     }
 
     override fun registerUser(userBusinessDto: UserBusinessDto) {
-        // TODO добавить password_encoder
+        userBusinessDto.setPassword(passwordEncoder.encode(userBusinessDto.getPassword()))
         try {
             userDao.saveNewUser(userBusinessDto)
         } catch (ex: BaseException) {

@@ -3,6 +3,20 @@ package com.example.application.entity.user
 import java.sql.Date
 import javax.persistence.*
 
+/**
+ * БД сущность пользователя
+ * @param id идентификатор
+ * @param login логин
+ * @param password пароль
+ * @param name имя
+ * @param surname фамилия
+ * @param lastname отчество
+ * @param address адрес
+ * @param regdate дата регистрации
+ * @param tariffPlan код тарифного плана
+ * @param email почта
+ * @param role роль
+ */
 @Entity
 @Table(name = "table_user", schema = "public", catalog = "postgres")
 class UserEntity(

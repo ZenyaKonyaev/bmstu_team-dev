@@ -9,6 +9,9 @@ import com.example.application.dto.product.ProductUIDto
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
+/**
+ * Реализация ProductUiAndBusinessConverter для типов ProductUIDto и ProductBusinessDtoImpl
+ */
 @Component
 class ProductUiAndBusinessConverterImpl : ProductUiAndBusinessConverter {
     @Autowired

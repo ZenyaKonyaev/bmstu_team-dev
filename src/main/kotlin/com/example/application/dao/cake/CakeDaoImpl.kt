@@ -16,6 +16,9 @@ import org.springframework.dao.DataAccessException
 import org.springframework.dao.EmptyResultDataAccessException
 import org.springframework.stereotype.Repository
 
+/**
+ * Реализация CakeDao для JPA репозитория
+ */
 @Repository
 class CakeDaoImpl : CakeDao {
     @Autowired
