@@ -228,9 +228,6 @@ create trigger product_operations_audit after INSERT OR UPDATE OR DELETE ON tabl
 create trigger cake_part_operations_audit after INSERT OR UPDATE OR DELETE ON table_cake_part
     for each row execute procedure auditOperationsTrigger();
 
-insert into table_product(product_add_descr_id, product_name, product_cost, product_img_name) VALUES
-    (3, 'Bread3', 0, 'some_img');
-
 
 
 ---------------------------------------------------------------------------------------------
@@ -289,11 +286,11 @@ select countCakeCost(3);
 
 
 
-
-insert into table_user(user_login, user_password, user_name, user_surname, user_lastname, user_address, user_regdate,
-                       user_email, user_tariff_plan, user_role)
-values ('zenya', '$2a$12$ShWWiQQvSWPOAnPudUVPSO7nZPv5yXmqa10T/Wz3Hd3guEWiBPBgy',
-        'Евгений', 'Коняев', 'Андреевич', 'Москва', '2012-12-12', 'test_value', 1, 'ROLE_ADMIN');
+--
+-- insert into table_user(user_login, user_password, user_name, user_surname, user_lastname, user_address, user_regdate,
+--                        user_email, user_tariff_plan, user_role)
+-- values ('zenya', '$2a$12$ShWWiQQvSWPOAnPudUVPSO7nZPv5yXmqa10T/Wz3Hd3guEWiBPBgy',
+--         'Евгений', 'Коняев', 'Андреевич', 'Москва', '2012-12-12', 'test_value', 1, 'ROLE_ADMIN');
 
 
 
@@ -329,9 +326,9 @@ insert into table_add_descr(add_descr_title, add_descr_descr, add_descr_img_name
 values ('AwesomeCreamPart2', 'some_descr5', 'some_url3', 3, 0, 0, 5);
 
 insert into table_product(product_add_descr_id, product_name, product_cost, product_img_name)
-values (1, 'Bread', 15.99, 'some_url');
+values (1, 'Bread', 15.99, 'bread.jpg');
 insert into table_product(product_add_descr_id, product_name, product_cost, product_img_name)
-values (2, 'Baget', 19.99, 'some_url_2');
+values (2, 'Baget', 19.99, 'baget.jpg');
 
 
 insert into table_cake_part(cake_part_add_descr_id, cake_part_name, cake_part_cost, cake_part_type)

@@ -14,9 +14,9 @@ class AccountValidationServiceImpl : AccountValidationService {
     @Autowired
     private lateinit var userService: UserService
 
-    private val MIN_SIZE_LOGIN = 6
+    private val MIN_SIZE_LOGIN = 1
     private val MAX_SIZE_LOGIN = 32
-    private val MIN_SIZE_PAS = 8
+    private val MIN_SIZE_PAS = 4
     private val MAX_SIZE_PAS = 32
 
     override fun validate(target: UserBusinessDto): List<DataBaseException> {
